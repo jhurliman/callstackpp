@@ -54,7 +54,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPTIMIZATION_FLAGS} ${DESIRED_WARNINGS
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
-add_library(callstackpp STATIC src/callstackpp.cpp)
+add_library(callstackpp STATIC src/callstack.cpp)
 target_compile_definitions(callstackpp PUBLIC BACKWARD_HAS_LIBUNWIND=1 BACKWARD_HAS_DWARF=1)
 target_link_libraries(callstackpp PUBLIC dl CONAN_PKG::libdwarf CONAN_PKG::libunwind)
 

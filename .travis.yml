@@ -3,19 +3,6 @@ python: "3.7"
 
 matrix:
   include:
-    # clang-format/tidy specific job
-    - os: linux
-      sudo: false
-      env: CXX=clang++ CLANG_FORMAT CLANG_TIDY
-      addons:
-        apt:
-          sources: [ 'ubuntu-toolchain-r-test' ]
-          packages: [ 'clang', 'clang-format', 'clang-tidy', 'libstdc++-8-dev' ]
-      script:
-        - make tidy
-        # FIXME: Re-enable this when we are using a pinned clang-format instead
-        # of the system version
-        # - make format
     # build with gcc
     - os: linux
       sudo: false

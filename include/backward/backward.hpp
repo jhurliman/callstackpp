@@ -4241,7 +4241,7 @@ private:
   static void
   sig_handler(int signo, siginfo_t *info, void *_ctx) {
     handleSignal(signo, info, _ctx);
-    if (signo == SIGUSR2) return;
+    if (signo == SIGUSR2) { return; }
 
     // try to forward the signal.
     raise(info->si_signo);

@@ -19,9 +19,9 @@ TEST_CASE("StackPrintFormatting") {
 
 TEST_CASE("FileDescriptor") {
 #ifdef __unix__
-  FILE* fp = fopen("/dev/null", "w");
+  FILE* fp = fopen("/dev/null", "we");
 #elif defined(_WIN32) || defined(WIN32)
-  FILE* fp = fopen("nul", "w");
+  FILE* fp = fopen("nul", "we");
 #else
   FILE* fp = nullptr;
 #endif

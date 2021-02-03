@@ -1,17 +1,14 @@
+#include <memory>
+
 #include "callstackpp.hpp"
 
 namespace callstackpp {
 
-static backward::SignalHandling* shptr = nullptr;
+static std::unique_ptr<backward::SignalHandling> shptr;
 
-void AddCallstackSignalHandler() { shptr = new backward::SignalHandling(); }
+void AddCallstackSignalHandler() { shptr = std::make_unique<backward::SignalHandling>(); }
 
-void RemoveCallstackSignalHandler() {
-  if (shptr != nullptr) {
-    delete shptr;
-    shptr = nullptr;
-  }
-}
+void RemoveCallstackSignalHandler() { shptr.reset(); }
 
 void PrintCurrentCallstack(FILE* fp, size_t depth) {
   backward::Printer printer;

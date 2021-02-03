@@ -1,7 +1,5 @@
 #pragma once
 
-#include "backward/backward.hpp"
-
 namespace callstackpp {
 
 void AddCallstackSignalHandler();
