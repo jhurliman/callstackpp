@@ -14,11 +14,11 @@ Returns `0` if everything looks properly formatted.
 '
 
 # Run clang-format on all cpp and hpp files
-find include/ bench/ test/ -type f -name '*.hpp' -or -name '*.cpp' \
+find include/ src/ test/ -type f -name '*.hpp' -or -name '*.cpp' \
  | xargs -I{} clang-format -i -style=file {}
 
 # Print list of modified files
-dirty=$(git ls-files --modified include/ bench/ test/)
+dirty=$(git ls-files --modified include/ src/ test/)
 
 if [[ $dirty ]]; then
     echo "The following files have been modified:"

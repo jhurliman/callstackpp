@@ -19,11 +19,11 @@ TEST_CASE("StackPrintFormatting") {
 
 TEST_CASE("FileDescriptor") {
 #ifdef __unix__
-  FILE *fp = fopen("/dev/null", "w");
+  FILE* fp = fopen("/dev/null", "w");
 #elif defined(_WIN32) || defined(WIN32)
-  FILE *fp = fopen("nul", "w");
+  FILE* fp = fopen("nul", "w");
 #else
-  FILE *fp = nullptr;
+  FILE* fp = nullptr;
 #endif
   callstackpp::PrintCurrentCallstack(fp);
   fclose(fp);

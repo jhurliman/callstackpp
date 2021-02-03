@@ -19,4 +19,4 @@ fi
 # change into the build directory so that clang-tidy can find the files
 # at the right paths (since this is where the actual build happens)
 cd build
-${CLANG_TIDY_SCRIPT}
+${CLANG_TIDY_SCRIPT} -p build

@@ -4,9 +4,7 @@ namespace callstackpp {
 
 static backward::SignalHandling* shptr = nullptr;
 
-void AddCallstackSignalHandler() {
-  shptr = new backward::SignalHandling();
-}
+void AddCallstackSignalHandler() { shptr = new backward::SignalHandling(); }
 
 void RemoveCallstackSignalHandler() {
   if (shptr != nullptr) {
@@ -15,7 +13,7 @@ void RemoveCallstackSignalHandler() {
   }
 }
 
-void PrintCurrentCallstack(FILE *fp, size_t depth) {
+void PrintCurrentCallstack(FILE* fp, size_t depth) {
   backward::Printer printer;
 
   backward::StackTrace st;
@@ -37,4 +35,4 @@ void PrintCurrentCallstack(std::ostream& os, size_t depth) {
   printer.print(st, os);
 }
 
-} // namespace callstackpp
+}  // namespace callstackpp
